@@ -136,7 +136,8 @@ class SingleCatField extends BaseRelationField
         $storedCategoryExists = $value !== false;
         $isFresh = $element && $element->getHasFreshContent();
 
-        $showBlankOption = $this->showBlankOption || (!$storedCategoryExists && !$isFresh);
+        // @TODO fix issue with not showing blank option when the stored category was deleted
+        $showBlankOption = $this->showBlankOption;
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(
